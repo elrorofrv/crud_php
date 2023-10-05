@@ -3,7 +3,7 @@
 include"modelo/conexion.php";
 
 $id=$_GET["id"];
-$sql=$conexion->query("select * from producto where id_producto=$id")
+$sql=$conexion->query("select * from persona where id_persona=$id")
 
 
 ?>
@@ -22,32 +22,31 @@ $sql=$conexion->query("select * from producto where id_producto=$id")
         <h3 class="text-center text secondary">Modificar registro de persona</h3>
 <?php 
 
-while($datos=$sql->fetch_object()){
-?> 
+while($datos=$sql->fetch_object()) { ?> 
 
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre de la persona</label>
-    <input type="text" class="form-control" name="nombre">
+    <input type="text" class="form-control" name="nombre"value="<?= $datos->nombre ?>">
 </div>
 
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">apellido de la persona</label>
-    <input type="text" class="form-control" name="apellido">
+    <input type="text" class="form-control" name="apellido"value="<?= $datos->apellido ?>">
 </div>
 
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">DNI de la persona</label>
-    <input type="number" class="form-control" name="dni">
+    <input type="number" class="form-control" name="dni"value="<?= $datos->dni ?>">
 </div>
 
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">fecha de nacimiento</label>
-    <input type="date" class="form-control" name="fecha_nac">
+    <input type="date" class="form-control" name="fecha_nac"value="<?= $datos->fecha_nac ?>">
 </div>
 
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label"> correo </label>
-    <input type="text" class="form-control" name="correo">
+    <input type="text" class="form-control" name="correo"value="<?= $datos->correo ?>">
 </div>
     
 <?php }
